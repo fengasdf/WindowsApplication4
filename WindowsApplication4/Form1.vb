@@ -11,6 +11,10 @@ Public Class Form1
     Dim listener As Socket
     Public allDone As New ManualResetEvent(False)
     Dim Thread_listen As Thread
+    
+    Dim So As New ArrayList
+    Dim thread_lock As Object = New Object()
+    Dim Time As Timers.Timer
     ' State object for reading client data asynchronously
     Public Class StateObject
         ' Client  socket.
@@ -24,9 +28,6 @@ Public Class Form1
         Public size As Int32
     End Class 'StateObject
 
-    Dim So As New ArrayList
-    Dim thread_lock As Object = New Object()
-    Dim Time As Timers.Timer
 
     Public Sub Time_hande()
         Dim str As String = ""
